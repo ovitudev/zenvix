@@ -14,11 +14,6 @@ import lombok.Setter;
 @MappedSuperclass
 public abstract class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, unique = true)
-    private Integer id;
-
     @Column(nullable = false)
     @Size(min = 3, max = 50)
     private String username;
@@ -33,4 +28,5 @@ public abstract class User {
     @Column(nullable = false)
     @Size(min = 8)
     private String password;
+
 }
