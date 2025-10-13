@@ -1,0 +1,120 @@
+/* --- Estilos para o Dashboard --- */
+.dashboard-body {
+    background-color: #000;
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 80px;
+    background-color: #333333;
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: width 0.3s ease;
+}
+
+/* Efeito de expansão no hover (opcional) */
+.sidebar:hover {
+    width: 240px;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 10px;
+}
+
+.sidebar-logo img {
+    width: 60px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.sidebar-logo span {
+    display: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.sidebar:hover .sidebar-logo span {
+    display: inline;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+.sidebar-nav li a, .sidebar-footer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    background-color: #555;
+    border-radius: 8px;
+    margin: 0 auto;
+    width: 40px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-nav li a:hover, .sidebar-footer a:hover {
+    background-color: #FFC72C;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.widgets-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.widget {
+    height: 200px;
+    border-radius: 15px;
+    padding: 1.5rem;
+    color: #000;
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+.widget-red {
+    background-color: #FFAAAA;
+    --glow-color: #FF5555;
+}
+
+.widget-green {
+    background-color: #ADFFAD;
+    --glow-color: #55FF55;
+}
+
+.about-site-container {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding: 1.5rem;
+    min-height: 400px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.about-site-container h3, .widget h3 {
+    font-weight: 500;
+}

@@ -1,0 +1,60 @@
+/* --- Reset Básico e Estilos Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #fff;
+}
+
+a {
+    color: #FFC72C;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- Componentes Utilitários --- */
+.btn {
+    width: 100%;
+    max-width: 220px;
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #FFC72C;
+    color: #121212;
+}
+
+.btn-primary:hover {
+    background-color: #ffda6a;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid #FFC72C;
+    color: #FFC72C;
+}
+
+.btn-secondary:hover {
+    background-color: #FFC72C;
+    color: #121212;
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
