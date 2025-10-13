@@ -5,11 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/signUp")
+@RequestMapping("/sign-up")
 public class SignUp {
 
     @GetMapping
     public String signUp() {
-        return "signUp";
+        // Redireciona para a página de login com o painel de registro ativo
+        return "redirect:/login?action=register";
     }
 }
