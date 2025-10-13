@@ -1,40 +1,69 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Zenvix</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenvix - Análise e Gestão Financeira</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-<div class="dashboard-container">
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <a href="/"><img src="/images/zenvix-logo.png" alt="Logo Zenvix"></a>
-      <span>Zenvix</span>
-    </div>
-    <nav class="sidebar-nav">
-      <ul>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-      </ul>
-    </nav>
-    <div class="sidebar-footer">
-      <a href="#"></a>
-    </div>
-  </aside>
+<body class="home-body">
 
-  <main class="main-content">
-    <div class="about-site-container">
-      <h3>Sobre o Site</h3>
+<header class="main-header">
+    <div class="header-container">
+        <div class="header-logo">
+            <a href="/"><img src="/images/zenvix-logo.png" alt="Logo Zenvix"> Zenvix</a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#features">Funcionalidades</a></li>
+                <li><a href="#about">Sobre</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="/login" class="btn btn-secondary">Login</a>
+            <a href="/login?action=register" class="btn btn-primary">Começar</a>
+        </div>
     </div>
-  </main>
-</div>
+</header>
+
+<main class="home-main">
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Controle Total da sua Vida Financeira</h1>
+            <p>A plataforma Zenvix oferece as ferramentas que você precisa para visualizar, gerenciar e otimizar suas finanças com clareza e precisão.</p>
+            <a href="/login?action=register" class="btn btn-primary btn-large">Crie sua conta gratuita</a>
+        </div>
+        <div class="hero-image">
+            <img src="/images/zenvix-logo.png" alt="Ilustração Financeira" class="hero-illustration">
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        <h2>Tudo que você precisa em um só lugar</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Dashboard Intuitivo</h3>
+                <p>Visualize suas receitas, despesas e investimentos em tempo real com gráficos interativos.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Metas e Orçamentos</h3>
+                <p>Defina metas financeiras e crie orçamentos personalizados para alcançar seus objetivos.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Relatórios Detalhados</h3>
+                <p>Gere relatórios completos sobre seus gastos e entenda para onde seu dinheiro está indo.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <p>&copy; 2025 Zenvix. Todos os direitos reservados.</p>
+</footer>
+
 </body>
 </html>
