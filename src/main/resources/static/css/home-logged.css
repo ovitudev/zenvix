@@ -1,0 +1,148 @@
+/* --- Estilos da Home do Usuário Logado --- */
+.main-content {
+    padding: 2rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.header-welcome h1 {
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-welcome p {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* --- Widgets de Resumo --- */
+.summary-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.widget {
+    background-color: #242424;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.widget-header h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ccc;
+}
+
+.widget-balance {
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.widget-details {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.widget-details.profit {
+    color: #55FF55;
+}
+
+.widget-details.loss {
+    color: #FFAAAA;
+}
+
+/* --- Container Principal (Gráfico e Transações) --- */
+.main-dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .main-dashboard-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.chart-container, .transactions-container {
+    background-color: #242424;
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.container-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.chart-placeholder, .transactions-list {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border: 2px dashed #333;
+    border-radius: 10px;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #333;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-info span:first-child {
+    font-weight: 500;
+    color: #fff;
+}
+
+.transaction-info span:last-child {
+    font-size: 0.875rem;
+    color: #999;
+}
+
+.transaction-amount {
+    font-weight: 600;
+}
+
+.transaction-amount.expense {
+    color: #FFAAAA;
+}
+
+.transaction-amount.income {
+    color: #55FF55;
+}
