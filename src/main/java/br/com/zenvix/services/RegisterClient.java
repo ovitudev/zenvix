@@ -1,7 +1,7 @@
 package br.com.zenvix.services;
 
 import br.com.zenvix.domain.client.Client;
-import br.com.zenvix.dto.SignUp.RegisterRequest;
+import br.com.zenvix.dto.signUp.RegisterRequest;
 import br.com.zenvix.repositories.ClientRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;

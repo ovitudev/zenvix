@@ -1,6 +1,6 @@
 package br.com.zenvix.controllers.clients.view;
 
-import br.com.zenvix.dto.SignUp.RegisterRequest;
+import br.com.zenvix.dto.signUp.RegisterRequest;
 import br.com.zenvix.services.RegisterClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
