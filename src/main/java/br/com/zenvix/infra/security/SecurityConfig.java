@@ -3,6 +3,7 @@ package br.com.zenvix.infra.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,34 +22,46 @@ public class SecurityConfig {
     private SecurityFilter securityFilter;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf(csrf -> csrf.disable())
+    @Order(1) // Prioridade 1: Regras para a API
+    public SecurityFilterChain apiSecurityFilterChain(HttpSecurity http) throws Exception {
+        return http
+                .securityMatcher("/auth/**", "/api/**") // Aplica esta regra apenas para URLs de API
+                .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/api/clients/register", "/auth/login").permitAll()
+                        .anyRequest().authenticated()
+                )
+                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+                .build();
+    }
+
+    @Bean
+    @Order(2) // Prioridade 2: Regras para as páginas web
+    public SecurityFilterChain webSecurityFilterChain(HttpSecurity http) throws Exception {
+        return http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(
                                 "/",
                                 "/login",
+                                "/sign-up",
                                 "/v1/clients/register",
                                 "/css/**",
                                 "/js/**",
                                 "/images/**")
                         .permitAll()
-                        //API
-                        .requestMatchers(
-                                "/api/clients/register"
-                        )
-                        .permitAll()
-                        .anyRequest().authenticated())
+                        .anyRequest().authenticated()
+                )
                 .formLogin(form -> form
-                        .loginPage("/login") // Aponta para sua página de login customizada
-                        .defaultSuccessUrl("/", true) // Redireciona para a home após o sucesso
-                        .permitAll() // Permite que todos acessem a URL de processamento de login
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/home", true)
+                        .permitAll()
                 )
                 .logout(logout -> logout
-                        .logoutUrl("/v1/logout")
-                        .logoutSuccessUrl("/v1/login?logout") // Volta para a página de login com uma mensagem
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout")
                         .invalidateHttpSession(true)
-                        .deleteCookies("JSESSIONID")
+                        .deleteCookies("JSESSIONID", "jwt_token") // Adicionado jwt_token para limpar
                         .permitAll()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

@@ -1,7 +1,7 @@
 package br.com.zenvix.repositories;
 
 import br.com.zenvix.domain.client.Client;
-import br.com.zenvix.dto.SignUp.RegisterRequest;
+import br.com.zenvix.dto.signUp.RegisterRequest;
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

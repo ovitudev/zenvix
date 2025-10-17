@@ -1,4 +1,4 @@
-package br.com.zenvix.dto.SignUp;
+package br.com.zenvix.dto.signUp;
 
 import br.com.zenvix.domain.client.Client;
 import jakarta.validation.constraints.Email;

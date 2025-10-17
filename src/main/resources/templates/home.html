@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Home - Zenvix</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/dashboard.css"> <link rel="stylesheet" href="/css/home-logged.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <a href="/home"><img src="/images/zenvix-logo.png" alt="Logo Zenvix"></a>
+            <span>Zenvix</span>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#" title="Home"><i class="fa-solid fa-house"></i></a></li>
+                <li><a href="#" title="Transações"><i class="fa-solid fa-exchange-alt"></i></a></li>
+                <li><a href="#" title="Relatórios"><i class="fa-solid fa-chart-pie"></i></a></li>
+                <li><a href="#" title="Metas"><i class="fa-solid fa-bullseye"></i></a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="btn-logout" title="Sair"><i class="fa-solid fa-sign-out-alt"></i></button>
+            </form>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header-welcome">
+            <h1 th:text="'Olá, ' + ${username} + '!'">Olá, Usuário!</h1>
+            <p>Aqui está o resumo da sua vida financeira este mês.</p>
+        </header>
+
+        <section class="summary-widgets">
+            <div class="widget">
+                <div class="widget-header">
+                    <h3>Saldo Atual</h3>
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+                <div class="widget-balance">R$ 9.750,80</div>
+            </div>
+            <div class="widget">
+                <div class="widget-header">
+                    <h3>Receitas do Mês</h3>
+                    <i class="fa-solid fa-arrow-up"></i>
+                </div>
+                <div class="widget-balance">R$ 5.200,00</div>
+                <div class="widget-details profit">
+                    <i class="fa-solid fa-caret-up"></i>
+                    <span>15% vs. mês passado</span>
+                </div>
+            </div>
+            <div class="widget">
+                <div class="widget-header">
+                    <h3>Despesas do Mês</h3>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </div>
+                <div class="widget-balance">R$ 2.890,45</div>
+                <div class="widget-details loss">
+                    <i class="fa-solid fa-caret-down"></i>
+                    <span>5% vs. mês passado</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-dashboard-grid">
+            <div class="chart-container">
+                <div class="container-header">
+                    <h2>Balanço (Últimos 6 meses)</h2>
+                    <a href="#" class="btn btn-secondary" style="max-width: 150px;">Ver Relatório</a>
+                </div>
+                <div class="chart-placeholder">
+                    <span>[Área do Gráfico]</span>
+                </div>
+            </div>
+
+            <div class="transactions-container">
+                <div class="container-header">
+                    <h2>Transações Recentes</h2>
+                </div>
+                <div class="transactions-list">
+                    <div class="transaction-item">
+                        <div class="transaction-info">
+                            <span>Salário</span>
+                            <span>05/10/2025</span>
+                        </div>
+                        <span class="transaction-amount income">+ R$ 4.500,00</span>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="transaction-info">
+                            <span>Aluguel</span>
+                            <span>08/10/2025</span>
+                        </div>
+                        <span class="transaction-amount expense">- R$ 1.200,00</span>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="transaction-info">
+                            <span>Supermercado</span>
+                            <span>12/10/2025</span>
+                        </div>
+                        <span class="transaction-amount expense">- R$ 450,70</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>

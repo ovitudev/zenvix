@@ -43,13 +43,13 @@
     </div>
 
     <div class="form-container sign-in-container">
-        <form id="signInForm" action="/login" method="post">
-            <h2>Entrar</h2>
+        <form id="signInForm" novalidate> <h2>Entrar</h2>
+            <div id="signInMessage" class="message" style="width: 100%;"></div>
             <div class="input-group">
-                <input type="text" name="username" placeholder="CPF" required/>
+                <input type="text" id="signInCpf" name="username" placeholder="CPF" required/>
             </div>
             <div class="input-group">
-                <input type="password" name="password" placeholder="Senha" required/>
+                <input type="password" id="signInPassword" name="password" placeholder="Senha" required/>
             </div>
             <a href="#" class="forgot-password">Esqueceu sua senha?</a>
             <button type="submit" class="btn btn-primary">Entrar</button>

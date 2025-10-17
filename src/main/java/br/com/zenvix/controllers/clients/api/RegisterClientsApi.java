@@ -1,6 +1,6 @@
 package br.com.zenvix.controllers.clients.api;
 
-import br.com.zenvix.dto.SignUp.RegisterRequest;
+import br.com.zenvix.dto.signUp.RegisterRequest;
 import br.com.zenvix.services.RegisterClient;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
